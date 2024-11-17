@@ -19,7 +19,7 @@ void
     float terminarviaje_1_arg2;
     char *terminarviaje_1_arg3;
     InfoServicio *result_3;
-    clnt = clnt_create(host, DISPLAY_PRG, DISPLAY_VER, "utc");
+    clnt = clnt_create(host, DISPLAY_PRG, DISPLAY_VER, "tcp");
     if (clnt == NULL)
     {
         clnt_pcreateerror(host);

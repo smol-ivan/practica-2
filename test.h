@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
-#include <practica.h>
+#include "practica.h"
 
 typedef struct
 {
