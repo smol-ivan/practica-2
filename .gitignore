@@ -2,3 +2,6 @@ practica_clnt.c
 practica_svc.c
 practica_xdr.c
 files_utils.h
+servidor.c
+cliente.c
+
