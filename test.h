@@ -49,10 +49,10 @@ void inicializar_autos()
         snprintf(autos[i].placas, MAX_PLACAS, "%03d%c%c%c", rand() % 1000, 'A' + rand() % 26, 'A' + rand() % 26, 'A' + rand() % 26);
     }
 
-    guardar_autos_csv(autos);
+    guardar_autos_csv(&autos);
 }
 
-void guardar_autos_csv(Auto autos[])
+void guardar_autos_csv(Auto *autos[])
 {
     FILE *file = fopen("autos.txt", "w");
     if (file == NULL)
@@ -65,8 +65,8 @@ void guardar_autos_csv(Auto autos[])
     for (int i = 0; i < N; i++)
     {
         fprintf(file, "%d,%d,%d,%s,%.2f,%s\n",
-                autos[i].disponible, autos[i].x, autos[i].y, autos[i].tipo,
-                autos[i].tarifa, autos[i].placas);
+                autos[i]->disponible, autos[i]->x, autos[i]->y, autos[i]->tipo,
+                autos[i]->tarifa, autos[i]->placas);
     }
 
     fclose(file);
@@ -216,8 +216,8 @@ void buscar_auto_cercano(Posicion pos, InfoAuto *result)
         estado->autos_libres--;
 
         // Guardar cambios
-        actualizar_autos(autos);
-        actualizar_estado(estado);
+        actualizar_autos(&autos);
+        actualizar_estado(&estado);
     }
 }
 
