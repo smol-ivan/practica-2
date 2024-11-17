@@ -80,7 +80,9 @@ void requestTrip(host) char *host;
     posicionFinal.x = randomPosicion();
     posicionFinal.y = randomPosicion();
 
-    distanciaViaje = calcularDistancia(posicionPasajero, posicionFinal);
+    distanciaViaje = calcular_distancia(posicionPasajero.x, posicionPasajero.y, posicionFinal.x, posicionFinal.y);
+
+    finishTrip(posicionFinal, distanciaViaje, result, client);
 
     clnt_destroy(client);
 }
@@ -151,7 +153,7 @@ char *argv[];
     case 2:
         requestStatus(host);
         break;
-    default:    
+    default:
         printf("Invalid option\n");
         break;
     }
